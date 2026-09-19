@@ -1,0 +1,153 @@
+/* ---------------------------------------------------------
+   Auth screens (sign up / sign in)
+   Reuses the tokens and form styles defined in style.css.
+--------------------------------------------------------- */
+
+.auth-body {
+  background: var(--ink);
+}
+
+.auth-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 36px 32px 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.auth-brand {
+  margin-bottom: 28px;
+}
+
+.auth-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+
+.auth-subtitle {
+  margin: 0 0 24px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-form .field label {
+  margin-bottom: 2px;
+}
+
+.auth-form input {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 10px 11px;
+  background: var(--paper);
+}
+
+.password-input-wrap {
+  position: relative;
+}
+
+.password-input-wrap input {
+  width: 100%;
+  padding-right: 42px;
+}
+
+.password-input-wrap input::-ms-reveal,
+.password-input-wrap input::-ms-clear {
+  display: none;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  padding: 4px;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.password-toggle:hover { color: var(--ink); background: var(--line); }
+
+.password-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.eye-icon { width: 18px; height: 18px; }
+
+.auth-form input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  background: #fff;
+}
+
+.field-error {
+  color: var(--danger);
+  font-size: 12.5px;
+  line-height: 1.35;
+  margin: 2px 0 0;
+}
+
+.field-success {
+  color: var(--accent);
+  font-size: 12.5px;
+  line-height: 1.35;
+  margin: 2px 0 0;
+}
+
+.auth-form input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.auth-submit {
+  width: 100%;
+  padding: 11px 18px;
+  margin-top: 4px;
+}
+
+.auth-error {
+  color: var(--danger);
+  font-size: 13.5px;
+  margin: -6px 0 0;
+}
+
+.auth-switch {
+  margin: 22px 0 0;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+.auth-switch a {
+  color: var(--accent-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}

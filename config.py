@@ -1,15 +1,9 @@
-"""
-Configuration for the Task Management application.
-
-Database credentials are read from environment variables so real
-credentials never need to be committed to source control. Sensible
-local defaults are provided for quick setup during development.
-"""
-
 import os
 
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-change-me")
+
 DB_CONFIG = {
-    "host": os.environ.get("DB_HOST", "localhost"),
+    "host": os.environ.get("DB_HOST"),
     "user": os.environ.get("DB_USER", "root"),
     "password": os.environ.get("DB_PASSWORD", ""),
     "database": os.environ.get("DB_NAME", "todo_db"),
