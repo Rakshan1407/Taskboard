@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taskboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">TB</span>
+      <span class="brand-name">Taskboard</span>
+    </div>
+
+    <nav class="filters" id="filters">
+      <button class="filter-item is-active" data-filter="all">
+        <span>All</span><span class="count" id="count-all">0</span>
+      </button>
+      <button class="filter-item" data-filter="Pending">
+        <span>Pending</span><span class="count" id="count-pending">0</span>
+      </button>
+      <button class="filter-item" data-filter="Completed">
+        <span>Completed</span><span class="count" id="count-completed">0</span>
+      </button>
+    </nav>
+
+    <p class="sidebar-note">Tasks are stored in MySQL and served through a Flask REST API.</p>
+  </aside>
+
+  <main class="main">
+
+    <header class="main-header">
+      <h1 id="page-title">All tasks</h1>
+      <p class="subtitle" id="page-subtitle">Everything on your plate, in one list.</p>
+    </header>
+
+    <form class="task-form" id="task-form">
+      <div class="field field-title">
+        <label for="title">Task name</label>
+        <input type="text" id="title" name="title" placeholder="e.g. Prepare interview demo" maxlength="150" required>
+      </div>
+      <div class="field field-desc">
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" placeholder="Optional details" maxlength="500">
+      </div>
+      <div class="field field-priority">
+        <label for="priority">Priority</label>
+        <select id="priority" name="priority">
+          <option value="Low">Low</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-add">Add task</button>
+    </form>
+
+    <p class="form-error" id="form-error" hidden></p>
+
+    <section class="task-list-wrap">
+      <div class="list-head">
+        <span class="col-status"></span>
+        <span class="col-task">Task</span>
+        <span class="col-priority">Priority</span>
+        <span class="col-date">Created</span>
+        <span class="col-actions"></span>
+      </div>
+
+      <ul class="task-list" id="task-list"></ul>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <p class="empty-title">Nothing here yet</p>
+        <p class="empty-body">Add a task above to start filling this list.</p>
+      </div>
+
+      <div class="loading-state" id="loading-state">
+        <p>Loading tasks…</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
