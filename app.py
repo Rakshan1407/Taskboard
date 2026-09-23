@@ -111,6 +111,7 @@ def task_to_dict(row):
 @app.route("/all")
 @app.route("/pending")
 @app.route("/completed")
+@login_required
 def index():
     return render_template("index.html", username=session.get("username"))
 
